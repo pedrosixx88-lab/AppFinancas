@@ -41,8 +41,7 @@ export default function RegisterPage() {
       return
     }
 
-    toast.success('Conta criada! Verifique seu e-mail para confirmar o cadastro.')
-    router.push('/login')
+    router.push(`/check-email?email=${encodeURIComponent(email)}`)
   }
 
   return (
