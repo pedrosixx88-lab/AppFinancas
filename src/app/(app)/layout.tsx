@@ -13,7 +13,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   const userName = user.user_metadata?.full_name as string | undefined
 
   return (
-    <div className="flex min-h-screen bg-[#f8fafc]">
+    <div className="flex min-h-screen bg-[#f8fafc] dark:bg-slate-950 transition-colors">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <Header userEmail={user.email} userName={userName} />

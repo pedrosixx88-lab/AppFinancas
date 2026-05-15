@@ -14,13 +14,13 @@ export function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="hidden md:flex flex-col w-60 bg-white border-r border-slate-100 min-h-screen">
-      <div className="px-6 h-16 flex items-center border-b border-slate-100">
+    <aside className="hidden md:flex flex-col w-60 bg-white dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800 min-h-screen transition-colors">
+      <div className="px-6 h-16 flex items-center border-b border-slate-100 dark:border-slate-800">
         <Link href="/dashboard" className="flex items-center gap-2.5">
           <div className="p-1.5 bg-blue-600 rounded-lg">
             <Wallet className="h-4 w-4 text-white" />
           </div>
-          <span className="font-bold text-slate-900 text-lg tracking-tight">Finanza</span>
+          <span className="font-bold text-slate-900 dark:text-slate-100 text-lg tracking-tight">Finanza</span>
         </Link>
       </div>
 
@@ -32,11 +32,11 @@ export function Sidebar() {
             className={cn(
               'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors',
               pathname === href
-                ? 'bg-blue-50 text-blue-700'
-                : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
             )}
           >
-            <Icon className={cn('h-4 w-4', pathname === href ? 'text-blue-600' : 'text-slate-400')} />
+            <Icon className={cn('h-4 w-4', pathname === href ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 dark:text-slate-500')} />
             {label}
           </Link>
         ))}
