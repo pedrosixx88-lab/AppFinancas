@@ -42,8 +42,8 @@ export default async function DashboardPage() {
   return (
     <div className="max-w-6xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
-        <p className="text-slate-500 text-sm capitalize mt-0.5">{monthName}</p>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Dashboard</h1>
+        <p className="text-slate-500 dark:text-slate-400 text-sm capitalize mt-0.5">{monthName}</p>
       </div>
 
       <SummaryCards summary={{ totalReceitas, totalDespesas, saldo }} />

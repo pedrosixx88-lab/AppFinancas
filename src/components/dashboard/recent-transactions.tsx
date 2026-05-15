@@ -16,35 +16,35 @@ function formatCurrency(value: number) {
 
 export function RecentTransactions({ transactions }: RecentTransactionsProps) {
   return (
-    <Card className="border-0 shadow-sm bg-white">
+    <Card className="border-0 shadow-sm bg-white dark:bg-slate-800">
       <CardHeader className="flex flex-row items-center justify-between pb-4">
-        <CardTitle className="text-base font-semibold text-slate-700">Transações Recentes</CardTitle>
-        <Link href="/transactions" className="flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors">
+        <CardTitle className="text-base font-semibold text-slate-700 dark:text-slate-200">Transações Recentes</CardTitle>
+        <Link href="/transactions" className="flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
           Ver todas <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </CardHeader>
       <CardContent>
         {transactions.length === 0 ? (
-          <p className="text-center text-slate-400 text-sm py-8">Nenhuma transação registrada.</p>
+          <p className="text-center text-slate-400 dark:text-slate-500 text-sm py-8">Nenhuma transação registrada.</p>
         ) : (
           <div className="space-y-3">
             {transactions.map((tx) => (
-              <div key={tx.id} className="flex items-center justify-between py-2 border-b border-slate-50 last:border-0">
+              <div key={tx.id} className="flex items-center justify-between py-2 border-b border-slate-50 dark:border-slate-700 last:border-0">
                 <div className="flex items-center gap-3 min-w-0">
                   <Badge
                     variant="secondary"
-                    className="text-xs shrink-0 bg-slate-100 text-slate-600 font-medium"
+                    className="text-xs shrink-0 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-medium"
                   >
                     {tx.category}
                   </Badge>
                   <div className="min-w-0">
-                    <p className="text-sm font-medium text-slate-800 truncate">{tx.description}</p>
-                    <p className="text-xs text-slate-400">
+                    <p className="text-sm font-medium text-slate-800 dark:text-slate-200 truncate">{tx.description}</p>
+                    <p className="text-xs text-slate-400 dark:text-slate-500">
                       {format(new Date(tx.date + 'T00:00:00'), "d 'de' MMM", { locale: ptBR })}
                     </p>
                   </div>
                 </div>
-                <span className={`text-sm font-semibold shrink-0 ml-4 ${tx.type === 'receita' ? 'text-emerald-600' : 'text-red-500'}`}>
+                <span className={`text-sm font-semibold shrink-0 ml-4 ${tx.type === 'receita' ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-500 dark:text-red-400'}`}>
                   {tx.type === 'receita' ? '+' : '-'}{formatCurrency(tx.amount)}
                 </span>
               </div>

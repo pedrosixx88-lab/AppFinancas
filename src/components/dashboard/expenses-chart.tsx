@@ -20,11 +20,11 @@ function formatCurrency(value: number) {
 export function ExpensesChart({ data }: ExpensesChartProps) {
   if (data.length === 0) {
     return (
-      <Card className="border-0 shadow-sm bg-white">
+      <Card className="border-0 shadow-sm bg-white dark:bg-slate-800">
         <CardHeader>
-          <CardTitle className="text-base font-semibold text-slate-700">Despesas por Categoria</CardTitle>
+          <CardTitle className="text-base font-semibold text-slate-700 dark:text-slate-200">Despesas por Categoria</CardTitle>
         </CardHeader>
-        <CardContent className="flex items-center justify-center h-48 text-slate-400 text-sm">
+        <CardContent className="flex items-center justify-center h-48 text-slate-400 dark:text-slate-500 text-sm">
           Nenhuma despesa registrada neste mês.
         </CardContent>
       </Card>
@@ -32,9 +32,9 @@ export function ExpensesChart({ data }: ExpensesChartProps) {
   }
 
   return (
-    <Card className="border-0 shadow-sm bg-white">
+    <Card className="border-0 shadow-sm bg-white dark:bg-slate-800">
       <CardHeader>
-        <CardTitle className="text-base font-semibold text-slate-700">Despesas por Categoria</CardTitle>
+        <CardTitle className="text-base font-semibold text-slate-700 dark:text-slate-200">Despesas por Categoria</CardTitle>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={280}>

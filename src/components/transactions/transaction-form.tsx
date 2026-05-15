@@ -123,7 +123,7 @@ export function TransactionForm({ open, onOpenChange, editing, onSuccess }: Tran
                     ? t === 'receita'
                       ? 'bg-emerald-50 border-emerald-300 text-emerald-700'
                       : 'bg-red-50 border-red-300 text-red-600'
-                    : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'
+                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
                 }`}
               >
                 {t === 'receita' ? '+ Receita' : '− Despesa'}

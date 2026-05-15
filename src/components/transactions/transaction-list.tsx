@@ -126,8 +126,8 @@ export function TransactionList({ initial }: TransactionListProps) {
       {/* Header bar */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Transações</h1>
-          <p className="text-slate-500 text-sm mt-0.5">{filtered.length} transação(ões) encontrada(s)</p>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Transações</h1>
+          <p className="text-slate-500 dark:text-slate-400 text-sm mt-0.5">{filtered.length} transação(ões) encontrada(s)</p>
         </div>
         <div className="flex gap-2">
           <Button
@@ -153,37 +153,37 @@ export function TransactionList({ initial }: TransactionListProps) {
       {/* Summary row */}
       <div className="flex flex-wrap gap-4 text-sm">
         <span className="text-emerald-600 font-semibold">Receitas: {formatCurrency(totalReceitas)}</span>
-        <span className="text-slate-300">|</span>
+        <span className="text-slate-300 dark:text-slate-600">|</span>
         <span className="text-red-500 font-semibold">Despesas: {formatCurrency(totalDespesas)}</span>
-        <span className="text-slate-300">|</span>
+        <span className="text-slate-300 dark:text-slate-600">|</span>
         <span className={`font-semibold ${totalReceitas - totalDespesas >= 0 ? 'text-blue-600' : 'text-red-500'}`}>
           Saldo: {formatCurrency(totalReceitas - totalDespesas)}
         </span>
       </div>
 
       {/* List */}
-      <Card className="border-0 shadow-sm bg-white overflow-hidden">
+      <Card className="border-0 shadow-sm bg-white dark:bg-slate-800 overflow-hidden">
         {fetching ? (
           <div className="flex items-center justify-center py-16">
             <Loader2 className="h-6 w-6 animate-spin text-blue-500" />
           </div>
         ) : filtered.length === 0 ? (
-          <div className="text-center py-16 text-slate-400">
+          <div className="text-center py-16 text-slate-400 dark:text-slate-500">
             <p className="text-lg font-medium mb-1">Nenhuma transação encontrada</p>
             <p className="text-sm">Tente ajustar os filtros ou adicione uma nova transação.</p>
           </div>
         ) : (
-          <div className="divide-y divide-slate-50">
+          <div className="divide-y divide-slate-50 dark:divide-slate-700">
             {filtered.map((tx) => (
-              <div key={tx.id} className="flex items-center gap-4 px-5 py-3.5 hover:bg-slate-50/60 transition-colors group">
+              <div key={tx.id} className="flex items-center gap-4 px-5 py-3.5 hover:bg-slate-50/60 dark:hover:bg-slate-700/50 transition-colors group">
                 <div className="flex-1 flex items-center gap-3 min-w-0">
                   <div>
-                    <p className="text-sm font-medium text-slate-800">{tx.description}</p>
+                    <p className="text-sm font-medium text-slate-800 dark:text-slate-200">{tx.description}</p>
                     <div className="flex items-center gap-2 mt-0.5">
-                      <Badge variant="secondary" className="text-xs bg-slate-100 text-slate-500 font-normal">
+                      <Badge variant="secondary" className="text-xs bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 font-normal">
                         {tx.category}
                       </Badge>
-                      <span className="text-xs text-slate-400">
+                      <span className="text-xs text-slate-400 dark:text-slate-500">
                         {format(new Date(tx.date + 'T00:00:00'), "d 'de' MMM, yyyy", { locale: ptBR })}
                       </span>
                     </div>
