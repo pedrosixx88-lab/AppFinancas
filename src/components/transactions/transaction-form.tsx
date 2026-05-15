@@ -72,6 +72,14 @@ export function TransactionForm({ open, onOpenChange, editing, onSuccess }: Tran
 
     setLoading(true)
 
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) {
+      toast.error('Sessão expirada. Faça login novamente.')
+      setLoading(false)
+      return
+    }
+
     const payload = {
       description: form.description.trim(),
       amount: Number(form.amount),
@@ -82,7 +90,7 @@ export function TransactionForm({ open, onOpenChange, editing, onSuccess }: Tran
 
     const { error } = editing
       ? await supabase.from('transactions').update(payload).eq('id', editing.id)
-      : await supabase.from('transactions').insert(payload)
+      : await supabase.from('transactions').insert({ ...payload, user_id: user.id })
 
     setLoading(false)
 
